@@ -161,7 +161,6 @@ reddit.com##.thing[class*="promoted"]
 reddit.com##.sponsored-indicator:upward(.promotedlink)
 reddit.com##article:has(.promotedlink)
 reddit.com##article:has(shreddit-ad-post)
-||grok.com^
 ! Block Reddit Video Networks
 ||v.redd.it^
 ||packaged-media.m.reddit.com^
