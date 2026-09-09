@@ -182,7 +182,6 @@ reddit.com##shreddit-post:has(shreddit-player)
 reddit.com##shreddit-post:has(video)
 reddit.com##article:has(shreddit-post[post-type="video"])
 reddit.com##article:has(shreddit-post[post-type="videogif"])
-
 ! Hide Feed and Search Thumbnails
 reddit.com##faceplate-img
 reddit.com##[data-testid="post-media-container"]
@@ -190,13 +189,10 @@ reddit.com##shreddit-post [slot="thumbnail"]
 reddit.com##shreddit-post-title + div img
 reddit.com##search-telemetry-tracker img
 reddit.com##a[href*="/comments/"] img
-
 ! Exception for Image Uploads / Attachments / User Icons
 @@||reddit.com/api/v1/image$domain=reddit.com
 @@||reddit.com/upload*
 @@||i.redd.it/$image
-
-
 ||upload.wikimedia.org^
 wikipedia.org##img
 wikipedia.org##video
@@ -205,22 +201,3 @@ wikipedia.org##.image
 wikipedia.org##.thumb
 wikipedia.org##.media
 wikipedia.org##figure
-
-! Dark Screen with Custom Text for Brave Search
-search.brave.com##html:style(background-color: #000000 !important; color: #ff0000 !important;)
-search.brave.com##body:style(display: flex !important; justify-content: center !important; align-items: center !important; height: 100vh !important; margin: 0 !important; background-color: #000000 !important;)
-search.brave.com##body:after:style(content: "Fuck off" !important; font-size: 32px !important; font-weight: bold !important; color: #ff0000 !important; font-family: sans-serif !important;)
-search.brave.com##body > *:style(display: none !important;)
-
-! 2. Grok Page Blanking Only
-x.com/i/grok##body:style(background-color: #000000 !important; color: #000000 !important;)
-twitter.com/i/grok##body:style(background-color: #000000 !important; color: #000000 !important;)
-x.com/i/grok##div
-twitter.com/i/grok##div
-
-! 3. Hide Grok Icon from Main Menu
-x.com##a[href*="/i/grok"]
-twitter.com##a[href*="/i/grok"]
-
-
-
