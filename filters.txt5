@@ -200,3 +200,8 @@ wikipedia.org##.image
 wikipedia.org##.thumb
 wikipedia.org##.media
 wikipedia.org##figure
+! Block Brave Search & Services
+||brave.com^
+||search.brave.com^
+||api.search.brave.com^
+
