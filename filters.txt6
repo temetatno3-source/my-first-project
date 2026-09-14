@@ -205,3 +205,27 @@ wikipedia.org##figure
 ||search.brave.com^
 ||api.search.brave.com^
 
+! ! ! ==========================================
+! ULTRA-AGGRESSIVE INSTAGRAM ADS & REELS BLOCK
+! ==========================================
+
+! 1. Direct SVG & Icon Target (Ad badge/megaphone icon container)
+instagram.com##[role="main"] div:has(svg[aria-label="Ad"])
+instagram.com##[role="main"] div:has(svg[aria-label="Sponsored"])
+instagram.com##div:has(> div > svg[aria-label="Ad"])
+
+! 2. Aggressive Parent Node Nuke (Hides full reel item if 'Ad' or 'Sponsored' exists anywhere inside)
+instagram.com##div[aria-label="Reels"] > div:has(span:has-text(/^Ad$/i))
+instagram.com##div[role="dialog"]:has(span:has-text(/^Ad$/i))
+instagram.com##section:has(span:has-text(/^Ad$/i))
+instagram.com##article:has(span:has-text(/^Ad$/i))
+instagram.com##div:has(> div > span:has-text(/^Ad$/i))
+
+! 3. Follow / Sponsor Link & Action Bar Targeting
+instagram.com##div:has(> a[href*="/ads/about"])
+instagram.com##div:has(> a[href*="about_est_ads"])
+instagram.com##div:has(span:has-text(/Sponsored|Ad|Promoted/i))
+
+! 4. Script Inject / Removal Rule (uBlock Origin specific - removes ad data objects)
+instagram.com##+js(json-prune, data.xdt_api__v1__ads__* data.reels_ad)
+instagram.com##+js(set-constant, __initialData.ad_data, undefined)
