@@ -229,4 +229,45 @@ instagram.com##div:has(span:has-text(/Sponsored|Ad|Promoted/i))
 ! 4. Script Inject / Removal Rule (uBlock Origin specific - removes ad data objects)
 instagram.com##+js(json-prune, data.xdt_api__v1__ads__* data.reels_ad)
 instagram.com##+js(set-constant, __initialData.ad_data, undefined)
-www.reddit.com##article:has(shreddit-post-flair:has-text(NSFW))
+! =================================================================
+! Reddit Complete Custom Blocker: Strict Subreddit Header & Banner
+! (Unblocks videos; Keeps post feed icons visible)
+! =================================================================
+
+! --- SECTION A: NSFW POST HIDING ---
+reddit.com##shreddit-post[nsfw]
+reddit.com##shreddit-post[nsfw-prefiltered]
+reddit.com##shreddit-post:has(shreddit-post-flair:has-text(/NSFW/i))
+reddit.com##shreddit-post:has(a[href*="nsfw"]:has-text(/NSFW/i))
+reddit.com##shreddit-post:has([aria-label*="NSFW"i])
+
+! --- SECTION B: NSFW IMAGE BLOCKING ---
+reddit.com##shreddit-post[nsfw] img
+reddit.com##shreddit-post:has(shreddit-post-flair:has-text(/NSFW/i)) img
+
+! --- SECTION C: NSFW COMMUNITY FEED BLOCKING ---
+reddit.com##body:has(shreddit-app[nsfw-prefiltered="true"]) shreddit-post
+reddit.com##shreddit-app[nsfw-prefiltered="true"] #main-content
+reddit.com##pdp-back-button[nsfw]
+reddit.com##shreddit-experience-tree:has(faceplate-tracker[source="nsfw_warning"])
+
+! --- SECTION D: COMMUNITY HIGHLIGHTS & CAROUSELS ---
+reddit.com##shreddit-gallery-carousel
+reddit.com##community-highlight-card
+reddit.com##faceplate-tracker[source="community_highlight"]
+
+! --- SECTION E: STRICT SUBREDDIT BANNER & MAIN LOGO BLOCK (ALL SUBREDDITS) ---
+! 1. Subreddit Header Banner-এর Scriptlet ও DOM Block
+reddit.com##+js(set-local-storage-item, community-header-banner, false)
+reddit.com##shreddit-async-loader[bundlename="community_header"]
+reddit.com##[page-type="community"] #banner-image
+reddit.com##[page-type="subreddit"] #banner-image
+reddit.com##div[style*="styles.redditmedia.com/t5_"][style*="banner"]
+
+! 2. Subreddit Page Header-এর Main Logo/Avatar Block (Shadow DOM inclusive)
+reddit.com##[page-type="subreddit"] shreddit-community-header-icon
+reddit.com##[page-type="community"] shreddit-community-header-icon
+reddit.com##shreddit-app[page-type="subreddit"] ::part(community-header-icon)
+reddit.com##[page-type="subreddit"] faceplate-img[src*="communityIcon"]
+reddit.com##[page-type="community"] faceplate-img[src*="communityIcon"]
+
