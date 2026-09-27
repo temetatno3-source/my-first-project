@@ -270,4 +270,11 @@ reddit.com##[page-type="community"] shreddit-community-header-icon
 reddit.com##shreddit-app[page-type="subreddit"] ::part(community-header-icon)
 reddit.com##[page-type="subreddit"] faceplate-img[src*="communityIcon"]
 reddit.com##[page-type="community"] faceplate-img[src*="communityIcon"]
+div[data-testid="placementTracking"] {
+    div[data-testid="placementTracking"] {
+    display: none !important;
+}
 
+article:has-text(/Ad|Promoted/i) {
+    display: none !important;
+}
