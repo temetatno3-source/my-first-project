@@ -278,3 +278,4 @@ div[data-testid="placementTracking"] {
 article:has-text(/Ad|Promoted/i) {
     display: none !important;
 }
+||grok.com^
