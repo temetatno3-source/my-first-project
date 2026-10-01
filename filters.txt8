@@ -1,5 +1,6 @@
-! Hide Image Search elements
-||search.brave.com/images$domain=brave.com
+! Brave Image Search Result ব্লক
+||search.brave.com/api/images$image,media
+||imgs.search.brave.com^
 ||reddit.com/pron
 ||reddit.com/sex
 ||reddit.com/fuck
