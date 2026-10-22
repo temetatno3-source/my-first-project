@@ -94,7 +94,6 @@ x.com##video
 ||reddit.com/desiboudi
 ||reddit.com/kolkatababes
 ||reddit.com/bdgirls
-||notrack.ai^
 ||reddit.com/banglababes
 ||reddit.com/indianslut
 ||reddit.com/indianbabes
@@ -153,7 +152,6 @@ x.com##video
 ||reddit.com/nsfw_world
 ||reddit.com/nsfw_land
 ||rumble.com^
-||dailymotion.com^
 ||tumblr.com^
 reddit.com##shreddit-ad-post
 reddit.com##shreddit-dynamic-ad-link
@@ -281,4 +279,4 @@ div[data-testid="placementTracking"] {
 article:has-text(/Ad|Promoted/i) {
     display: none !important;
 }
-||grok.com^
+
