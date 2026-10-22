@@ -46,6 +46,12 @@
 ||reddit.com/banglasex*
 ||reddit.com/banglanude*
 ||reddit.com/mallu
+
+! Block Notrack.ai, Grok, and Dailymotion
+||notrack.ai^$document
+||grok.com^$document
+||x.ai^$document
+||dailymotion.com^$document
 ||reddit.com/leaks
 ||reddit.com/mflix
 ||reddit.com/megadrop*
