@@ -1,4 +1,4 @@
-! Brave Image Search Result ব্লক
+! Brave Image Search Result 
 ||search.brave.com/api/images$image,media
 ||imgs.search.brave.com^
 ||reddit.com/pron
@@ -114,6 +114,11 @@ x.com##video
 ||reddit.com/savitabhabhi
 ||reddit.com/viralkand
 ||reddit.com/megalinks
+! --- Brave Search & NoTrack AI Hard Block ---
+||search.brave.com^$all,third-party
+search.brave.com##+js(set,, false)
+||notrack.ai^$all,third-party
+notrack.ai##+js(set,, false)
 ||reddit.com/megaleaks
 ||reddit.com/leakedcontent
 ||reddit.com/driveleaks
@@ -158,6 +163,9 @@ x.com##video
 ||reddit.com/nsfw_world
 ||reddit.com/nsfw_land
 ||rumble.com^
+notrack.ai##+js(set,, false)
+||notrack.ai^$all
+||*.notrack.ai^
 ||tumblr.com^
 reddit.com##shreddit-ad-post
 reddit.com##shreddit-dynamic-ad-link
