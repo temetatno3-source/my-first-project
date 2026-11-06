@@ -1,6 +1,13 @@
-! Brave Image Search Result 
+! ==========================================
+! CUSTOM FILTERS
+! Quetta Browser / AdGuard-compatible rules
+! ==========================================
+
+! 01. Brave Image Search
 ||search.brave.com/api/images$image,media
 ||imgs.search.brave.com^
+
+! 02. Reddit NSFW Keyword URL Blocking
 ||reddit.com/pron
 ||reddit.com/sex
 ||reddit.com/fuck
@@ -21,7 +28,6 @@
 ||reddit.com/dick
 ||reddit.com/cock
 ||reddit.com/anal
-||notrack.ai^
 ||reddit.com/cum
 ||reddit.com/orgasm
 ||reddit.com/squirt
@@ -47,11 +53,6 @@
 ||reddit.com/banglasex*
 ||reddit.com/banglanude*
 ||reddit.com/mallu
-||notrack.ai^$document
-! Block Notrack.ai, Grok, and Dailymotion
-||grok.com^$document
-||x.ai^$document
-||dailymotion.com^$document
 ||reddit.com/leaks
 ||reddit.com/mflix
 ||reddit.com/megadrop*
@@ -83,16 +84,6 @@
 ||reddit.com/masterbatiotion
 ||reddit.com/assfuck
 ||reddit.com/ass
-||bsky.app^
-||bsky.social^
-||blueskyweb.xyz^
-||video.twimg.com^$domain=x.com
-||v.attn.tv^$domain=x.com
-||twimg.com/.mp4$domain=x.com
-||twimg.com/.m3u8$domain=x.com
-x.com##[data-testid="videoComponent"]
-x.com##[data-testid="videoPlayer"]
-x.com##video
 ||reddit.com/desigirls
 ||reddit.com/desi_nsfw
 ||reddit.com/desicelebs
@@ -114,11 +105,6 @@ x.com##video
 ||reddit.com/savitabhabhi
 ||reddit.com/viralkand
 ||reddit.com/megalinks
-! --- Brave Search & NoTrack AI Hard Block ---
-||search.brave.com^$all,third-party
-search.brave.com##+js(set,, false)
-||notrack.ai^$all,third-party
-notrack.ai##+js(set,, false)
 ||reddit.com/megaleaks
 ||reddit.com/leakedcontent
 ||reddit.com/driveleaks
@@ -148,7 +134,6 @@ notrack.ai##+js(set,, false)
 ||reddit.com/nsfw_videos
 ||reddit.com/nsfw_vids
 ||reddit.com/nsfw_clips
-||betking.com^
 ||reddit.com/nsfw_content
 ||reddit.com/nsfw_galleries
 ||reddit.com/nsfw_albums
@@ -162,11 +147,29 @@ notrack.ai##+js(set,, false)
 ||reddit.com/nsfw_zone
 ||reddit.com/nsfw_world
 ||reddit.com/nsfw_land
+
+! 03. Other Website Blocking
+||notrack.ai^$document
+||grok.com^$document
+||x.ai^$document
+||dailymotion.com^$document
+||bsky.app^
+||bsky.social^
+||blueskyweb.xyz^
+||betking.com^
 ||rumble.com^
-notrack.ai##+js(set,, false)
-||notrack.ai^$all
-||*.notrack.ai^
 ||tumblr.com^
+
+! 04. X / Twitter Video Blocking
+||video.twimg.com^$domain=x.com
+||v.attn.tv^$domain=x.com
+||twimg.com/.mp4$domain=x.com
+||twimg.com/.m3u8$domain=x.com
+x.com##[data-testid="videoComponent"]
+x.com##[data-testid="videoPlayer"]
+x.com##video
+
+! 05. Reddit Promoted Ads
 reddit.com##shreddit-ad-post
 reddit.com##shreddit-dynamic-ad-link
 reddit.com##[slot="ad-format-content"]
@@ -176,7 +179,8 @@ reddit.com##.thing[class*="promoted"]
 reddit.com##.sponsored-indicator:upward(.promotedlink)
 reddit.com##article:has(.promotedlink)
 reddit.com##article:has(shreddit-ad-post)
-! Block Reddit Video Networks
+
+! 06. Reddit Video Network Blocking
 ||v.redd.it^
 ||packaged-media.m.reddit.com^
 ||preview.redd.it/HLS
@@ -186,7 +190,7 @@ reddit.com##article:has(shreddit-ad-post)
 ||reddit.com/.mov$media
 ||reddit.com/.m4v$media
 
-! Hide Video Players and Video Elements
+! 07. Reddit Video Player Hiding
 reddit.com##shreddit-player
 reddit.com##shreddit-embed
 reddit.com##shreddit-aspect-ratio:has(shreddit-player)
@@ -196,17 +200,21 @@ reddit.com##shreddit-post:has(shreddit-player)
 reddit.com##shreddit-post:has(video)
 reddit.com##article:has(shreddit-post[post-type="video"])
 reddit.com##article:has(shreddit-post[post-type="videogif"])
-! Hide Feed and Search Thumbnails
+
+! 08. Reddit Feed Thumbnail Hiding
 reddit.com##faceplate-img
 reddit.com##[data-testid="post-media-container"]
 reddit.com##shreddit-post [slot="thumbnail"]
 reddit.com##shreddit-post-title + div img
 reddit.com##search-telemetry-tracker img
 reddit.com##a[href*="/comments/"] img
-! Exception for Image Uploads / Attachments / User Icons
+
+! 09. Reddit Image Upload Exceptions
 @@||reddit.com/api/v1/image$domain=reddit.com
 @@||reddit.com/upload*
 @@||i.redd.it/$image
+
+! 10. Wikipedia Media Blocking
 ||upload.wikimedia.org^
 wikipedia.org##img
 wikipedia.org##video
@@ -215,82 +223,63 @@ wikipedia.org##.image
 wikipedia.org##.thumb
 wikipedia.org##.media
 wikipedia.org##figure
-! Block Brave Search & Services
+
+! 11. Brave Search and Services Blocking
 ||brave.com^
 ||search.brave.com^
 ||api.search.brave.com^
 
-! ! ! ==========================================
-! ULTRA-AGGRESSIVE INSTAGRAM ADS & REELS BLOCK
-! ==========================================
-
-! 1. Direct SVG & Icon Target (Ad badge/megaphone icon container)
+! 12. Instagram Ads and Sponsored Content
 instagram.com##[role="main"] div:has(svg[aria-label="Ad"])
 instagram.com##[role="main"] div:has(svg[aria-label="Sponsored"])
 instagram.com##div:has(> div > svg[aria-label="Ad"])
-
-! 2. Aggressive Parent Node Nuke (Hides full reel item if 'Ad' or 'Sponsored' exists anywhere inside)
 instagram.com##div[aria-label="Reels"] > div:has(span:has-text(/^Ad$/i))
 instagram.com##div[role="dialog"]:has(span:has-text(/^Ad$/i))
 instagram.com##section:has(span:has-text(/^Ad$/i))
 instagram.com##article:has(span:has-text(/^Ad$/i))
 instagram.com##div:has(> div > span:has-text(/^Ad$/i))
-
-! 3. Follow / Sponsor Link & Action Bar Targeting
 instagram.com##div:has(> a[href*="/ads/about"])
 instagram.com##div:has(> a[href*="about_est_ads"])
 instagram.com##div:has(span:has-text(/Sponsored|Ad|Promoted/i))
 
-! 4. Script Inject / Removal Rule (uBlock Origin specific - removes ad data objects)
+! 13. Instagram uBlock Origin Scriptlets
 instagram.com##+js(json-prune, data.xdt_api__v1__ads__* data.reels_ad)
 instagram.com##+js(set-constant, __initialData.ad_data, undefined)
-! =================================================================
-! Reddit Complete Custom Blocker: Strict Subreddit Header & Banner
-! (Unblocks videos; Keeps post feed icons visible)
-! =================================================================
 
-! --- SECTION A: NSFW POST HIDING ---
+! 14. Reddit NSFW Post Blocking
 reddit.com##shreddit-post[nsfw]
 reddit.com##shreddit-post[nsfw-prefiltered]
 reddit.com##shreddit-post:has(shreddit-post-flair:has-text(/NSFW/i))
 reddit.com##shreddit-post:has(a[href*="nsfw"]:has-text(/NSFW/i))
 reddit.com##shreddit-post:has([aria-label*="NSFW"i])
 
-! --- SECTION B: NSFW IMAGE BLOCKING ---
+! 15. Reddit NSFW Image Blocking
 reddit.com##shreddit-post[nsfw] img
 reddit.com##shreddit-post:has(shreddit-post-flair:has-text(/NSFW/i)) img
 
-! --- SECTION C: NSFW COMMUNITY FEED BLOCKING ---
+! 16. Reddit NSFW Community Feed Blocking
 reddit.com##body:has(shreddit-app[nsfw-prefiltered="true"]) shreddit-post
 reddit.com##shreddit-app[nsfw-prefiltered="true"] #main-content
 reddit.com##pdp-back-button[nsfw]
 reddit.com##shreddit-experience-tree:has(faceplate-tracker[source="nsfw_warning"])
 
-! --- SECTION D: COMMUNITY HIGHLIGHTS & CAROUSELS ---
+! 17. Reddit Community Highlights
 reddit.com##shreddit-gallery-carousel
 reddit.com##community-highlight-card
 reddit.com##faceplate-tracker[source="community_highlight"]
 
-! --- SECTION E: STRICT SUBREDDIT BANNER & MAIN LOGO BLOCK (ALL SUBREDDITS) ---
-! 1. Subreddit Header Banner-এর Scriptlet ও DOM Block
+! 18. Reddit Community Banner and Logo Blocking
 reddit.com##+js(set-local-storage-item, community-header-banner, false)
 reddit.com##shreddit-async-loader[bundlename="community_header"]
 reddit.com##[page-type="community"] #banner-image
 reddit.com##[page-type="subreddit"] #banner-image
 reddit.com##div[style*="styles.redditmedia.com/t5_"][style*="banner"]
-
-! 2. Subreddit Page Header-এর Main Logo/Avatar Block (Shadow DOM inclusive)
 reddit.com##[page-type="subreddit"] shreddit-community-header-icon
 reddit.com##[page-type="community"] shreddit-community-header-icon
 reddit.com##shreddit-app[page-type="subreddit"] ::part(community-header-icon)
 reddit.com##[page-type="subreddit"] faceplate-img[src*="communityIcon"]
 reddit.com##[page-type="community"] faceplate-img[src*="communityIcon"]
-div[data-testid="placementTracking"] {
-    div[data-testid="placementTracking"] {
-    display: none !important;
-}
 
-article:has-text(/Ad|Promoted/i) {
-    display: none !important;
-}
-
+! 19. Generic Ad Placement Blocking
+##div[data-testid="placementTracking"]
+##article:has-text(/Ad|Promoted/i)
