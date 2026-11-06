@@ -6,6 +6,17 @@
 ! 01. Brave Image Search
 ||search.brave.com/api/images$image,media
 ||imgs.search.brave.com^
+! --- X.COM (TWITTER) VIDEO & THUMBNAIL COMPLETE BLOCK ---
+||video.twimg.com^$domain=x.com
+||v.attn.tv^$domain=x.com
+||twimg.com/*.mp4$domain=x.com
+||twimg.com/*.m3u8$domain=x.com
+x.com##[data-testid="videoComponent"]
+x.com##[data-testid="videoPlayer"]
+x.com##video
+x.com##[data-testid="tweetPhoto"]
+x.com##div:has([data-testid="videoPlayer"])
+x.com##div:has([data-testid="videoComponent"])
 
 ! 02. Reddit NSFW Keyword URL Blocking
 ||reddit.com/pron
